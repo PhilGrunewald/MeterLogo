@@ -2,6 +2,7 @@
 // A short and simple simulation of a clock that mutates into a power switch symbol
 // intended for use as an animated logo
 // for complete version with sound, see http://www.energy-use.org/
+// sounds are licenced
 
 float time=  -PI;  // 12 o'clock
 int step = 0;
