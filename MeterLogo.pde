@@ -26,8 +26,8 @@ void setup()
 void drawClock() {
   // minute
 
-  if (time < PI) {
- 	 time+= PI/30;
+  if (time < PI-0.01) {
+ 	 time+= PI/1500;
 	  start_y = 20;
 	} else {
 	  time = PI;
@@ -35,14 +35,16 @@ void drawClock() {
 	  start_y = 0;
 	  ring = loadShape("ring_down.svg");
 	  hand = loadShape("hand_down.svg");
+      step +=1;
 	}
   if (step < 10) {
     start_y = step;
     time = -PI;
+    step +=1;
   } 
-  if (step > 71) {
-	  ring = loadShape("ring.svg");
-	  hand = loadShape("hand.svg");
+  if ((time == PI) && (step > 12)) {
+	ring = loadShape("ring.svg");
+	hand = loadShape("hand.svg");
   }
 
   pushMatrix();
@@ -62,7 +64,6 @@ if (keyPressed == true) {
 	ring = loadShape("ring.svg");
 	hand = loadShape("hand.svg");
   }
-  step +=1;
   background(255);
 
   drawClock();
